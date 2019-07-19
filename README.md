@@ -1,6 +1,6 @@
 # excel_ping
 
-add ping function in Excel.
+Ping function in Excel.
 
 Excelのユーザー定義関数としてPingを実装しました。
 単純に「=Ping("Target")」と書くだけで、実行できます。
@@ -70,8 +70,7 @@ Request Timed Out [2009/09/23 14:38:41] (192.168.100.1)
 
 ## Usage
 
-Import "ICMPUtil.bas" to the file you want to use it.
-Only one of the following user-defined functions can be used.
+Import "ICMPUtil.bas" to the file and `Ping` functions can be used.
 The return value of the function is `string`.
 ```
 Ping ( target-host, [ success-string , failure-string ] )
@@ -79,18 +78,18 @@ Ping ( target-host, [ success-string , failure-string ] )
 
 #### target-host
 
-target-host is a character string representing IP address or hostname.
+`target-host` is a character string representing IP address or hostname.
 If hostname can not be resolved, will fail (GetHostByName Error).
 
 #### success-string (optional)
 
-Sets the value returned by the function when there is a response. If omitted, the following default values ​​are used.
+Sets the response format returned by the function. If omitted, the following default values ​​are used.
 
 ```
 $S [$D] SIZE=$Bbytes TTL=$T RTT=$Rms ($A)
 ```
 
-Dollar symbols are converted to their respective values ​​at runtime
+Dollar symbols are converted to their actual values ​​at runtime.
 
 ```
 $S : result as a character string. Success is "Success".
@@ -112,7 +111,7 @@ Success [2009/09/23 14:38:39] SIZE=32bytes TTL=128 RTT=0ms (127.0.0.1)
 
 #### failure-string (optional)
 
-Sets the value returned by the function when there is no response, or when host name name resolution can not be performed.
+Sets the response format returned by the function when there is no response, or when host name name resolution can not be performed.
 If omitted, the following default values ​​are used.
 
 ```
